@@ -16,7 +16,7 @@ const Mailbody = (props: { mailbody: Mailbodytype, mailheader: Mailtype, handlef
             
             <h1 className="text-2xl font-semibold">{props.mailheader.subject}</h1>
             {
-              props.isFavorite ? <p className="text-[#E54065898989]">Favorite</p>:
+              props.isFavorite ? <p className="text-[#E54065]">Favorite</p>:
               <button className="px-3 py-1 text-sm bg-[#E54065] text-white  rounded-full hover:bg-[#ee4066]" onClick={()=>{props.handlefavourite(props.mailheader.id)}}>
               Mark as favorite
             </button>
