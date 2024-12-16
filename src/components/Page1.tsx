@@ -177,6 +177,9 @@ const Page1 = () => {
               mailbody={mailbody}
               mailheader={mailheader}
               handlefavourite={handlefavourite}
+              isFavorite={favouritemails.some((obj) => {
+                return JSON.stringify(obj) === JSON.stringify(mailheader);
+              })}
               isLoading={loading}
             />
           </section>

@@ -1,7 +1,7 @@
 import { Mailbodytype, Mailtype } from "@/types/mailtype";
 import React from "react";
 import { formatTimestamp } from "@/dateconvert/dateformat";
-const Mailbody = (props: { mailbody: Mailbodytype, mailheader: Mailtype, handlefavourite:(a:string)=>void ,isLoading:boolean}) => {
+const Mailbody = (props: { mailbody: Mailbodytype, mailheader: Mailtype, handlefavourite:(a:string)=>void ,isLoading:boolean,isFavorite:boolean}) => {
   const htmlString = props.mailbody.body;
   if(props.isLoading)
     return <div className="flex flex-1 p-6 rounded-xl bg-white overflow-y-auto justify-center items-center">Loading...</div>;
@@ -15,10 +15,12 @@ const Mailbody = (props: { mailbody: Mailbodytype, mailheader: Mailtype, handlef
           <div className="flex justify-between items-start">
             
             <h1 className="text-2xl font-semibold">{props.mailheader.subject}</h1>
-            
-            <button className="px-3 py-1 text-sm bg-[#E54065] text-white  rounded-full hover:bg-[#ee4066]" onClick={()=>{props.handlefavourite(props.mailheader.id)}}>
+            {
+              props.isFavorite ? <p className="text-[#E54065898989]">Favorite</p>:
+              <button className="px-3 py-1 text-sm bg-[#E54065] text-white  rounded-full hover:bg-[#ee4066]" onClick={()=>{props.handlefavourite(props.mailheader.id)}}>
               Mark as favorite
             </button>
+            }
           </div>
           <div className="text-sm  mt-1">
             {formatTimestamp(props.mailheader.date)}

@@ -180,6 +180,9 @@ const Page1 = () => {
               mailheader={mailheader}
               handlefavourite={handlefavourite}
               isLoading={loading}
+              isFavorite={favouritemails.some((obj) => {
+                return JSON.stringify(obj) === JSON.stringify(mailheader);
+              })}
             />
           </section>
         )}
